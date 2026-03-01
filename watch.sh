@@ -1,19 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 
-# Source - https://stackoverflow.com/a/43008569
-# Posted by JRichardsz, modified by community. See post 'Timeline' for change history
-# Retrieved 2026-03-01, License - CC BY-SA 4.0
-for ARGUMENT in "$@"
-do
-   KEY=$(echo $ARGUMENT | cut -f1 -d=)
-
-   KEY_LENGTH=${#KEY}
-   VALUE="${ARGUMENT:$KEY_LENGTH+1}"
-
-   export "$KEY"="$VALUE"
-done
-# from this line, you could use your variables as you need
 
 # check required variables early
 : "${TELEGRAM_BOT_TOKEN:?TELEGRAM_BOT_TOKEN must be set}"
