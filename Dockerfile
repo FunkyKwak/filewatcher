@@ -1,7 +1,6 @@
 FROM alpine:latest
 
-RUN apk add --no-cache inotify-tools msmtp mailx bash
-RUN apt-get install curl
+RUN apk add --no-cache inotify-tools msmtp mailx bash curl
 
 ARG TELEGRAM_BOT_TOKEN
 ARG TELEGRAM_CHAT_ID

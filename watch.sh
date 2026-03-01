@@ -14,7 +14,11 @@ do
 done
 # from this line, you could use your variables as you need
 
-#WATCH_DIR="/watch_dir"
+if [ -z "${WATCH_DIR:-}" ] || [ -z "${TELEGRAM_BOT_TOKEN:-}" ] || [ -z "${TELEGRAM_CHAT_ID:-}" ]; then
+  echo "Il manque WATCH_DIR ou TELEGRAM_* dans les variables d'environnement" >&2
+  exit 1
+fi
+
 echo "Surveillance démarrée sur $WATCH_DIR"
 
 inotifywait -m -r -e delete --format '%f' "$WATCH_DIR" | while read FILE
