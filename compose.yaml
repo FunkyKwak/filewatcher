@@ -3,7 +3,7 @@ name: filewatcher
 services:
   filewatcher:
     container_name: filewatcher
-    build: .
+    image: ${IMAGE:-ghcr.io/OWNER/REPO:latest}
     volumes:
       - ${WATCH_DIR}:/watch_dir:ro
     environment:
