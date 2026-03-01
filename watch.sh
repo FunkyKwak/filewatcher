@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # Source - https://stackoverflow.com/a/43008569
 # Posted by JRichardsz, modified by community. See post 'Timeline' for change history
@@ -14,6 +15,7 @@ do
 done
 # from this line, you could use your variables as you need
 
+# check required variables early
 if [ -z "${WATCH_DIR:-}" ] || [ -z "${TELEGRAM_BOT_TOKEN:-}" ] || [ -z "${TELEGRAM_CHAT_ID:-}" ]; then
   echo "Il manque WATCH_DIR ou TELEGRAM_* dans les variables d'environnement" >&2
   exit 1
