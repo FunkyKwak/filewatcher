@@ -3,6 +3,10 @@ name: filewatcher
 services:
   filewatcher:
     container_name: filewatcher
+    build: .
     volumes:
       - ${WATCH_DIR}:/watch_dir:ro
+    environment:
+      - TELEGRAM_BOT_TOKEN
+      - TELEGRAM_CHAT_ID
     restart: unless-stopped
