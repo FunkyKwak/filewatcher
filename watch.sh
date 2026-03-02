@@ -9,6 +9,7 @@ set -euo pipefail
 
 # log startup
 echo "[watch.sh] starting inotify monitoring on /watch_dir"
+curl -s -X POST https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage -d chat_id=$TELEGRAM_CHAT_ID -d text="Filewatcher a démarré" > /dev/null
 
 inotifywait -m -r -e delete --format '%f' "/watch_dir" | while read FILE
 do
